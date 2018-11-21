@@ -10,6 +10,16 @@
 		B5D8F0092194BB490028F5A4 /* igyTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D8EFFF2194BB490028F5A4 /* igyTools.framework */; };
 		B5D8F00E2194BB490028F5A4 /* igyToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8F00D2194BB490028F5A4 /* igyToolsTests.swift */; };
 		B5D8F0102194BB490028F5A4 /* igyTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5D8F0022194BB490028F5A4 /* igyTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5D8F01F2194BBAF0028F5A4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8F01B2194BBAF0028F5A4 /* UIView.swift */; };
+		B5D8F0202194BBAF0028F5A4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8F01C2194BBAF0028F5A4 /* String.swift */; };
+		B5D8F0212194BBAF0028F5A4 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8F01D2194BBAF0028F5A4 /* CALayer.swift */; };
+		B5D8F0222194BBAF0028F5A4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8F01E2194BBAF0028F5A4 /* UIViewController.swift */; };
+		B5D8F02A2194BBF90028F5A4 /* Spitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8F0242194BBF80028F5A4 /* Spitter.swift */; };
+		B5D8F02B2194BBF90028F5A4 /* Saver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8F0252194BBF80028F5A4 /* Saver.swift */; };
+		B5D8F02C2194BBF90028F5A4 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8F0272194BBF90028F5A4 /* ActivityIndicator.swift */; };
+		B5D8F02D2194BBF90028F5A4 /* ConstraintSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8F0292194BBF90028F5A4 /* ConstraintSettings.swift */; };
+		B5D8F02F2194BD3E0028F5A4 /* igyTools.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B5D8F02E2194BD3E0028F5A4 /* igyTools.podspec */; };
+		B5D8F0332194C51C0028F5A4 /* igyTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8F0322194C51C0028F5A4 /* igyTools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +39,16 @@
 		B5D8F0082194BB490028F5A4 /* igyToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = igyToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D8F00D2194BB490028F5A4 /* igyToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = igyToolsTests.swift; sourceTree = "<group>"; };
 		B5D8F00F2194BB490028F5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5D8F01B2194BBAF0028F5A4 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		B5D8F01C2194BBAF0028F5A4 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		B5D8F01D2194BBAF0028F5A4 /* CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		B5D8F01E2194BBAF0028F5A4 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B5D8F0242194BBF80028F5A4 /* Spitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spitter.swift; sourceTree = "<group>"; };
+		B5D8F0252194BBF80028F5A4 /* Saver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saver.swift; sourceTree = "<group>"; };
+		B5D8F0272194BBF90028F5A4 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		B5D8F0292194BBF90028F5A4 /* ConstraintSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintSettings.swift; sourceTree = "<group>"; };
+		B5D8F02E2194BD3E0028F5A4 /* igyTools.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = igyTools.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B5D8F0322194C51C0028F5A4 /* igyTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = igyTools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +73,7 @@
 		B5D8EFF52194BB490028F5A4 = {
 			isa = PBXGroup;
 			children = (
+				B5D8F02E2194BD3E0028F5A4 /* igyTools.podspec */,
 				B5D8F0012194BB490028F5A4 /* igyTools */,
 				B5D8F00C2194BB490028F5A4 /* igyToolsTests */,
 				B5D8F0002194BB490028F5A4 /* Products */,
@@ -71,6 +92,7 @@
 		B5D8F0012194BB490028F5A4 /* igyTools */ = {
 			isa = PBXGroup;
 			children = (
+				B5D8F0192194BB590028F5A4 /* Source */,
 				B5D8F0022194BB490028F5A4 /* igyTools.h */,
 				B5D8F0032194BB490028F5A4 /* Info.plist */,
 			);
@@ -84,6 +106,54 @@
 				B5D8F00F2194BB490028F5A4 /* Info.plist */,
 			);
 			path = igyToolsTests;
+			sourceTree = "<group>";
+		};
+		B5D8F0192194BB590028F5A4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B5D8F0282194BBF90028F5A4 /* Classes */,
+				B5D8F0232194BBF80028F5A4 /* Helpers */,
+				B5D8F0262194BBF90028F5A4 /* Views */,
+				B5D8F01A2194BB6C0028F5A4 /* Extensions */,
+				B5D8F0322194C51C0028F5A4 /* igyTools.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B5D8F01A2194BB6C0028F5A4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5D8F01D2194BBAF0028F5A4 /* CALayer.swift */,
+				B5D8F01C2194BBAF0028F5A4 /* String.swift */,
+				B5D8F01B2194BBAF0028F5A4 /* UIView.swift */,
+				B5D8F01E2194BBAF0028F5A4 /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B5D8F0232194BBF80028F5A4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B5D8F0242194BBF80028F5A4 /* Spitter.swift */,
+				B5D8F0252194BBF80028F5A4 /* Saver.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B5D8F0262194BBF90028F5A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5D8F0272194BBF90028F5A4 /* ActivityIndicator.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B5D8F0282194BBF90028F5A4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B5D8F0292194BBF90028F5A4 /* ConstraintSettings.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +218,7 @@
 				TargetAttributes = {
 					B5D8EFFE2194BB490028F5A4 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 					B5D8F0072194BB490028F5A4 = {
 						CreatedOnToolsVersion = 10.0;
@@ -177,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5D8F02F2194BD3E0028F5A4 /* igyTools.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +266,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5D8F0212194BBAF0028F5A4 /* CALayer.swift in Sources */,
+				B5D8F02D2194BBF90028F5A4 /* ConstraintSettings.swift in Sources */,
+				B5D8F0202194BBAF0028F5A4 /* String.swift in Sources */,
+				B5D8F0332194C51C0028F5A4 /* igyTools.swift in Sources */,
+				B5D8F0222194BBAF0028F5A4 /* UIViewController.swift in Sources */,
+				B5D8F01F2194BBAF0028F5A4 /* UIView.swift in Sources */,
+				B5D8F02C2194BBF90028F5A4 /* ActivityIndicator.swift in Sources */,
+				B5D8F02A2194BBF90028F5A4 /* Spitter.swift in Sources */,
+				B5D8F02B2194BBF90028F5A4 /* Saver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +422,7 @@
 		B5D8F0142194BB490028F5A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +440,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.igy.igyTools;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +449,7 @@
 		B5D8F0152194BB490028F5A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +475,7 @@
 		B5D8F0172194BB490028F5A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7B9XD4WA9S;
 				INFOPLIST_FILE = igyToolsTests/Info.plist;
@@ -409,6 +494,7 @@
 		B5D8F0182194BB490028F5A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7B9XD4WA9S;
 				INFOPLIST_FILE = igyToolsTests/Info.plist;

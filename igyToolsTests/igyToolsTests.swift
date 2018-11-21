@@ -2,8 +2,8 @@
 //  igyToolsTests.swift
 //  igyToolsTests
 //
-//  Created by Andrii on 11/8/18.
-//  Copyright © 2018 rolique. All rights reserved.
+//  Created by Andrii Narinian on 11/8/18.
+//  Copyright © 2018 ROLIQUE All rights reserved.
 //
 
 import XCTest
