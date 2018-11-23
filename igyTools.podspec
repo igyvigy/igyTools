@@ -65,7 +65,7 @@ just the stuff that i used to transfer from one project to another
   #
 
   s.platform     = :ios
-  s.platform     = :ios, "10.3"
+  s.platform     = :ios, "10.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"

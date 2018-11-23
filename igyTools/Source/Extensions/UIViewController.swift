@@ -35,7 +35,7 @@ extension UIViewController {
       spinner.startAnimating()
     }
     
-    if shouldBlockUI { view.isUserInteractionEnabled = true }
+    if shouldBlockUI { view.isUserInteractionEnabled = false }
   }
   
   public func hideSpinner() {

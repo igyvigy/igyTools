@@ -1,8 +1,8 @@
 
 import UIKit
 
-typealias ErrorClosure = (String?, String?) -> Void
-typealias Handler = () -> Void
+public typealias ErrorClosure = (String?, String?) -> Void
+public typealias SpitterHandler = () -> Void
 
 extension String {
   public var localized: String {
@@ -17,23 +17,23 @@ extension UIColor {
 }
 
 public class Spitter {
-  static let blackList = [String]()
-  static var activityIndicator: UIActivityIndicatorView?
-  static func showErrorAlert(_ error: String?, viewController: UIViewController) {
+  public static let blackList = [String]()
+  public static var activityIndicator: UIActivityIndicatorView?
+  public static func showErrorAlert(_ error: String?, viewController: UIViewController) {
     var permission = false
     blackList.forEach({ if error?.range(of: $0) != nil { permission = false }})
     if permission {
       showAlert(message: error, buttonTitles: ["Close"], actions: [nil], owner: viewController)
     }
   }
-  static func showOkAlert(_ message: String?, title: String? = nil, action: Handler? = nil, viewController: UIViewController) {
+  public static func showOkAlert(_ message: String?, title: String? = nil, action: SpitterHandler? = nil, viewController: UIViewController) {
     var permission = true
     blackList.forEach({ if message?.range(of: $0) != nil { permission = false }})
     if permission {
       showAlert(title, message: message, buttonTitles: ["Ok"], actions: [action ?? {}], owner: viewController)
     }
   }
-  static func showActionAlert(_ title: String?, message: String?, controller: UIViewController, action: @escaping () -> Void) {
+  public static func showActionAlert(_ title: String?, message: String?, controller: UIViewController, action: @escaping () -> Void) {
     let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {_ in
       action()
@@ -44,7 +44,7 @@ public class Spitter {
       controller.present(alert, animated: true, completion: nil)
     }
   }
-  static func showActionAlertOnPVC(_ title: String? = nil, message: String?, action: @escaping () -> Void) {
+  public static func showActionAlertOnPVC(_ title: String? = nil, message: String?, action: @escaping () -> Void) {
     if var topController = UIApplication.shared.keyWindow?.rootViewController {
       while let presentedViewController = topController.presentedViewController {
         topController = presentedViewController
@@ -56,7 +56,7 @@ public class Spitter {
       }
     }
   }
-  static func pvc() -> UIViewController? {
+  public static func pvc() -> UIViewController? {
     if var topController = UIApplication.shared.keyWindow?.rootViewController {
       while let presentedViewController = topController.presentedViewController {
         topController = presentedViewController
@@ -66,10 +66,10 @@ public class Spitter {
       return nil
     }
   }
-  static func identifier(of object: AnyObject) -> String {
+  public static func identifier(of object: AnyObject) -> String {
     return String(describing: ObjectIdentifier(object).hashValue)
   }
-  static func showAlertOnPVC(_ title: String? = nil, message: String?, buttonTitles: [String], actions: [(() -> Void)?]) {
+  public static func showAlertOnPVC(_ title: String? = nil, message: String?, buttonTitles: [String], actions: [(() -> Void)?]) {
     if var topController = UIApplication.shared.keyWindow?.rootViewController {
       while let presentedViewController = topController.presentedViewController {
         topController = presentedViewController
@@ -81,17 +81,17 @@ public class Spitter {
       }
     }
   }
-  static func showConfirmation(_ title: String = "Are you sure?", message: String? = nil, owner: UIViewController? = nil, confirmCompletion: @escaping () -> Void) {
+  public static func showConfirmation(_ title: String = "Are you sure?", message: String? = nil, owner: UIViewController? = nil, confirmCompletion: @escaping () -> Void) {
     MultiActionAlert(style: .alert, title: title, message: message, buttonTitles: ["Ok".localized, "Cancel".localized], actionStyles: [.default, .cancel], actions: [ {confirmCompletion()}, {} ], owner: owner ?? pvc())
       .showAlert()
   }
-  static func showAlert(_ title: String? = nil, message: String?, buttonTitles: [String], actions: [(() -> Void)?], owner: UIViewController) {
+  public static func showAlert(_ title: String? = nil, message: String?, buttonTitles: [String], actions: [(() -> Void)?], owner: UIViewController) {
     MultiActionAlert(style: UIAlertController.Style.alert, title: title, message: message, buttonTitles: buttonTitles, actions: actions, owner: owner).showAlert()
   }
-  static func showSheet(_ title: String? = nil, message: String?, buttonTitles: [String], actions: [(() -> Void)?], styles: [UIAlertAction.Style]? = nil, owner: UIViewController) {
+  public static func showSheet(_ title: String? = nil, message: String?, buttonTitles: [String], actions: [(() -> Void)?], styles: [UIAlertAction.Style]? = nil, owner: UIViewController) {
     MultiActionAlert(style: UIAlertController.Style.actionSheet, title: title, message: message, buttonTitles: buttonTitles, actionStyles: styles, actions: actions, owner: owner).showAlert()
   }
-  static func shareUrl(_ urlString: String?, viewController: UIViewController) {
+  public static func shareUrl(_ urlString: String?, viewController: UIViewController) {
     if let urlString = urlString, let url = URL(string: urlString) {
       let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
       activityVC.popoverPresentationController?.sourceView = viewController.view
@@ -99,7 +99,7 @@ public class Spitter {
       viewController.present(activityVC, animated: true, completion: nil)
     }
   }
-  static func showOk(vc: UIViewController? = nil, completion: @escaping () -> Void) {
+  public static func showOk(vc: UIViewController? = nil, completion: @escaping () -> Void) {
     if let vc = vc {
       displayOk(vc: vc, completion: completion)
     } else {
@@ -121,7 +121,7 @@ public class Spitter {
       completion()
     }
   }
-  static func showWord(word: String, withColor color: UIColor = .black, vc: UIViewController? = nil, completion: @escaping () -> Void) {
+  public static func showWord(word: String, withColor color: UIColor = .black, vc: UIViewController? = nil, completion: @escaping () -> Void) {
     if let vc = vc {
       displayWord(word: word, withColor: color, vc: vc, completion: completion)
     } else {
@@ -136,6 +136,7 @@ public class Spitter {
     label.textAlignment = .center
     label.textColor = color
     label.center = vc.view.center
+    label.numberOfLines = 0
     label.font = UIFont(name: label.font.fontName, size: 30)
     vc.view.addSubview(label)
     vc.view.bringSubviewToFront(label)
@@ -147,7 +148,7 @@ public class Spitter {
       completion()
     }
   }
-  static func showSpinner(vc: UIViewController? = nil) {
+  public static func showSpinner(vc: UIViewController? = nil) {
     if let vc = vc {
       displaySpinner(vc: vc)
     } else {
@@ -156,7 +157,7 @@ public class Spitter {
       }
     }
   }
-  static func hideSpinner(vc: UIViewController? = nil) {
+  public static func hideSpinner(vc: UIViewController? = nil) {
     if let vc = vc {
       removeSpinner(vc: vc)
     } else {
@@ -192,7 +193,7 @@ public class Spitter {
       }
     }
   }
-  static public func handleErrorStringClosure(onError: (() -> Void)? = nil, onAction: (() -> Void)? = nil) -> (String) -> Void {
+  public static func handleErrorStringClosure(onError: (() -> Void)? = nil, onAction: (() -> Void)? = nil) -> (String) -> Void {
     return { errStr in
       onError?()
       var permission = true
@@ -203,21 +204,21 @@ public class Spitter {
   static public func handleError(error: NSError) {
     produceErrorClosure(error: error, errorClosure: handleErrorMessageClosure())
   }
-  static func handleErrorMessageClosure(shouldHideActivityIndicator: Bool = false, completion: (() -> Void)? = nil) -> ErrorClosure {
+  public static func handleErrorMessageClosure(shouldHideActivityIndicator: Bool = false, completion: (() -> Void)? = nil) -> ErrorClosure {
     return { title, message in
       showActionAlertOnPVC(title, message: message, action: {})
       if shouldHideActivityIndicator { hideSpinner() }
       completion?()
     }
   }
-  static func error(code: Int, description: String) -> NSError {
+  public static func error(code: Int, description: String) -> NSError {
     return NSError(domain: "Rolique", code: code, userInfo: [NSLocalizedDescriptionKey: description])
   }
-  static func produceErrorClosure(error: NSError, errorClosure: ErrorClosure) {
+  public static func produceErrorClosure(error: NSError, errorClosure: ErrorClosure) {
     errorClosure("Oooops.. ", error.localizedDescription)
     print(error)
   }
-  static func displayErrorOnPVC(error: Error, action: (() -> Void)? = nil) {
+  public static func displayErrorOnPVC(error: Error, action: (() -> Void)? = nil) {
     showActionAlertOnPVC("Oooops.. ", message: error.localizedDescription, action: action ?? {})
   }
   static public func showOkAlertOnPVC(_ message: String) {
@@ -228,7 +229,7 @@ public class Spitter {
       showOkAlert(message, viewController: topController)
     }
   }
-  static func showInputAlert(title: String? = nil,
+  public static func showInputAlert(title: String? = nil,
                              message: String? = nil,
                              buttons: [String],
                              actionStyles: [UIAlertAction.Style]? = nil,
@@ -245,7 +246,7 @@ public class Spitter {
                      textfieldConfigurationHandler: textfieldConfigurationHandler
       ).showAlert()
   }
-  static func shareContent(_ text: String?, image: UIImage?, controller: UIViewController) {
+  public static func shareContent(_ text: String?, image: UIImage?, controller: UIViewController) {
     var itemsToShare = [AnyObject]()
     if let text = text { itemsToShare.append(text as AnyObject) }
     if let image = image { itemsToShare.append(image) }
@@ -257,7 +258,7 @@ public class Spitter {
       print("Sharing view did appear")
     }
   }
-  static func activityCompletionHandler(activityType: UIActivity.ActivityType?, completed: Bool, items: [Any]?, activityError: Error?) {
+  public static func activityCompletionHandler(activityType: UIActivity.ActivityType?, completed: Bool, items: [Any]?, activityError: Error?) {
     if completed && activityError == nil {
       switch activityType! {
       case UIActivity.ActivityType.mail:print("activity finished for mail")
@@ -280,15 +281,15 @@ public class Spitter {
     parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|", metrics: nil, views: viewBindingsDict))
     parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|", metrics: nil, views: viewBindingsDict))
   }
-  static func spit(string: String, errorClosure: (_ title: String?, _ message: String?) -> Void) {
+  public static func spit(string: String, errorClosure: (_ title: String?, _ message: String?) -> Void) {
     produceErrorClosure(error: error(code: 777, description: string), errorClosure: errorClosure)
   }
-  static func spit(error: NSError, errorClosure: (_ title: String?, _ message: String?) -> Void) {
+  public static func spit(error: NSError, errorClosure: (_ title: String?, _ message: String?) -> Void) {
     produceErrorClosure(error: error, errorClosure: errorClosure)
   }
 }
 
-class MultiActionAlert {
+public class MultiActionAlert {
   var style: UIAlertController.Style
   var title: String?
   var message: String?
@@ -332,7 +333,7 @@ class MultiActionAlert {
     self.textfieldConfigurationHandler = textfieldConfigurationHandler
   }
   
-  func showAlert() {
+  public func showAlert() {
     if owner == nil { owner = Spitter.pvc() }
     let alert = UIAlertController(title: self.title, message: self.message, preferredStyle: self.style)
     alert.popoverPresentationController?.sourceView = owner!.view
@@ -363,9 +364,9 @@ class MultiActionAlert {
   class Action {
     var title: String
     var style: UIAlertAction.Style
-    var handler: Handler?
+    var handler: SpitterHandler?
     
-    init(title: String, style: UIAlertAction.Style, handler: Handler? = {}) {
+    init(title: String, style: UIAlertAction.Style, handler: SpitterHandler? = {}) {
       self.title = title
       self.style = style
       self.handler = handler
