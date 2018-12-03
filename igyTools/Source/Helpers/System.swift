@@ -14,12 +14,7 @@ class SystemCatche {
     navBackgroundColor = nav.view.backgroundColor// == .clear ? navBackgroundColor : nav.view.backgroundColor
   }
   
-  func restore(for nav: UINavigationController) {
-    let n = UINavigationController(navigationBarClass: NavigationBar.self, toolbarClass: nil)
-    nav.navigationBar.setBackgroundImage(n.navigationBar.backgroundImage(for: .default), for: .default)
-    nav.navigationBar.shadowImage = n.navigationBar.shadowImage
-    nav.view.backgroundColor = n.view.backgroundColor
-  }
+  
 }
 
 public class NavigationBar: UINavigationBar {
@@ -40,25 +35,28 @@ public class NavigationBar: UINavigationBar {
 
 public struct System {
   
+  static public func setBackgroundColor(forNav nav: UINavigationController, color: UIColor) {
+    let navBar = nav.navigationBar
+    navBar.setBackgroundImage(#imageLiteral(resourceName: "white"), for: .default)
+    navBar.setBackgroundImage(#imageLiteral(resourceName: "white"), for: .compact)
+    //    navBar.shadowImage = UIImage()
+    navBar.isTranslucent = true
+    nav.view.backgroundColor = color
+  }
+  
   static public func clearNavigationBar(forNav nav: UINavigationController) {
     let navBar = nav.navigationBar
     navBar.setBackgroundImage(UIImage(), for: .default)
     navBar.shadowImage = UIImage()
     navBar.isTranslucent = true
+    nav.view.backgroundColor = .white
   }
   
-  static public func hideNavigationBar(forNav nav: UINavigationController) {
-    SystemCatche.current.store(for: nav)
-    let navBar = nav.navigationBar
-    navBar.setBackgroundImage(UIImage(), for: .default)
-    navBar.shadowImage = UIImage()
-    nav.view.backgroundColor = .clear
-//    nav.isNavigationBarHidden = true
-  }
-  
-  static public func showNavigationBar(forNav nav: UINavigationController) {
-    SystemCatche.current.restore(for: nav)
-//    nav.isNavigationBarHidden = false
+  static public func restore(for nav: UINavigationController) {
+    let n = UINavigationController(navigationBarClass: NavigationBar.self, toolbarClass: nil)
+    nav.navigationBar.setBackgroundImage(n.navigationBar.backgroundImage(for: .default), for: .default)
+    nav.navigationBar.shadowImage = n.navigationBar.shadowImage
+    nav.view.backgroundColor = n.view.backgroundColor
   }
   
   static public func setNAvigationBarImage(forBar navBar: UINavigationBar, image: UIImage) {

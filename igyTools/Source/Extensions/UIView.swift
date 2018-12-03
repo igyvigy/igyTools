@@ -16,6 +16,7 @@ extension UIView {
   
   public func toCirle() {
     layer.roundCorner(radius: bounds.height / 2)
+    clipsToBounds = true
   }
   
   public func createAndConfigureSubview(_ view: UIView?) {

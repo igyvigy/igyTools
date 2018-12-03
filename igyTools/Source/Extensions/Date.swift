@@ -167,11 +167,11 @@ extension Date {
     let diff = Calendar.current.compare(now, to: self, toGranularity: Calendar.Component.day)
     switch diff {
     case .orderedSame:
-      return "today"
+      return "today".localized
     case .orderedAscending:
-      return "tomorrow"
+      return "tomorrow".localized
     case .orderedDescending:
-      return "yesterday"
+      return "yesterday".localized
     }
   }
 }
