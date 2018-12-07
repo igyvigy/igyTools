@@ -61,5 +61,16 @@ extension String {
     return (regex?.numberOfMatches(in: self, range: NSRange(location: 0, length: count))) ?? 0 > 0
   }
   
+  public func group(by groupSize:Int=3, separator:String="-") -> String {
+    if count <= groupSize   { return self }
+    let splitSize  = min(max(2, count - 1) , groupSize)
+    let splitIndex = index(startIndex, offsetBy:splitSize)
+    
+    let sub = substring(to:splitIndex)
+    let addition = substring(from:splitIndex).group(by:groupSize, separator:separator)
+    let result = sub + separator + addition
+    
+    return result
+  }
   
 }

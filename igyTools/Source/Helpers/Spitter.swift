@@ -69,6 +69,9 @@ public class Spitter {
       return nil
     }
   }
+  public static func rootVC() -> UIViewController? {
+    return UIApplication.shared.keyWindow?.rootViewController
+  }
   public static func identifier(of object: AnyObject) -> String {
     return String(describing: ObjectIdentifier(object).hashValue)
   }
@@ -106,13 +109,15 @@ public class Spitter {
     if let vc = vc {
       displayOk(vc: vc, completion: completion)
     } else {
-      if let rootVC = UIApplication.shared.keyWindow?.rootViewController {
+      if let pvc = pvc() {
+        displayOk(vc: pvc, completion: completion)
+      } else if let rootVC = rootVC() {
         displayOk(vc: rootVC, completion: completion)
       }
     }
   }
   private static func displayOk (vc: UIViewController, completion: @escaping () -> Void) {
-    let imageView = UIImageView(image: #imageLiteral(resourceName: "ic_ok"))
+    let imageView = UIImageView(image: #imageLiteral(resourceName: "Office 365"))
     imageView.center = vc.view.center
     vc.view.addSubview(imageView)
     vc.view.bringSubviewToFront(imageView)
@@ -128,7 +133,9 @@ public class Spitter {
     if let vc = vc {
       displayWord(word: word, withColor: color, vc: vc, completion: completion)
     } else {
-      if let rootVC = UIApplication.shared.keyWindow?.rootViewController {
+      if let pvc = pvc() {
+        displayWord(word: word, withColor: color, vc: pvc, completion: completion)
+      } else if let rootVC = rootVC() {
         displayWord(word: word, withColor: color, vc: rootVC, completion: completion)
       }
     }
@@ -201,7 +208,7 @@ public class Spitter {
       onError?()
       var permission = true
       blackList.forEach { if errStr.range(of: $0) != nil { permission = false } }
-      if permission { showActionAlertOnPVC( message: errStr, action: { onAction?() }) }
+      if permission { showActionAlertOnPVC("Ooops.." , message: errStr, action: { onAction?() }) }
     }
   }
   static public func handleError(error: NSError) {

@@ -11,6 +11,17 @@ final public class ConstraintsSettings {
   fileprivate(set) var width: CGFloat?
   fileprivate(set) var height: CGFloat?
   
+  public init(left: CGFloat? = nil, right: CGFloat? = nil, top: CGFloat? = nil, bottom: CGFloat? = nil, centerX: CGFloat? = nil, centerY: CGFloat? = nil, width: CGFloat? = nil, height: CGFloat? = nil) {
+    self.left = left
+    self.right = right
+    self.centerX = centerX
+    self.centerY = centerY
+    self.top = top
+    self.bottom = bottom
+    self.width = width
+    self.height = height
+  }
+  
   public init(left: CGFloat = 0, right: CGFloat = 0, top: CGFloat = 0, bottom: CGFloat = 0) {
     self.left = left
     self.right = right
@@ -74,21 +85,21 @@ extension UIView {
     let dict = ["v": subview]
     
     if let bottom = constraintsSettings.bottom {
-      addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v]-" + "\(bottom)" + "-|", options: [], metrics: nil, views: dict))
+      addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v]-" + "(\(bottom))" + "-|", options: [], metrics: nil, views: dict))
       
     }
     
     if let top = constraintsSettings.top {
-      addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-" + "\(top)" + "-[v]", options: [], metrics: nil, views: dict))
+      addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-" + "(\(top))" + "-[v]", options: [], metrics: nil, views: dict))
     }
     
     if let right = constraintsSettings.right {
-      addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[v]-" + "\(right)" + "-|", options: [], metrics: nil, views: dict))
+      addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[v]-" + "(\(right))" + "-|", options: [], metrics: nil, views: dict))
       
     }
     
     if let left = constraintsSettings.left {
-      addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-" + "\(left)" + "-[v]", options: [], metrics: nil, views: dict))
+      addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-" + "(\(left))" + "-[v]", options: [], metrics: nil, views: dict))
     }
     
     if let height = constraintsSettings.height {
