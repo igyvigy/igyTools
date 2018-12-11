@@ -60,4 +60,12 @@ extension UIViewController {
       if !self.view.isUserInteractionEnabled { self.view.isUserInteractionEnabled = true }
     }
   }
+  
+  public var className: String {
+    var className = String(describing: type(of: self))
+    className.firstIndex(of: "<").map {
+      className = String(className[className.startIndex..<$0])
+    }
+    return className
+  }
 }

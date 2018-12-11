@@ -203,6 +203,12 @@ public class Spitter {
       }
     }
   }
+  public static func showErrorOnPvc(_ errStr: String, onAction: (() -> Void)? = nil) {
+    var permission = true
+    blackList.forEach { if errStr.range(of: $0) != nil { permission = false } }
+    if permission { showActionAlertOnPVC("Ooops.." , message: errStr, action: { onAction?() }) }
+  }
+  
   public static func handleErrorStringClosure(onError: (() -> Void)? = nil, onAction: (() -> Void)? = nil) -> (String) -> Void {
     return { errStr in
       onError?()
@@ -372,6 +378,7 @@ public class Spitter {
       }
     }
   }
+  
 }
 
 public class MultiActionAlert {
@@ -384,14 +391,14 @@ public class MultiActionAlert {
   var actionStyles: [UIAlertAction.Style]?
   var textfieldConfigurationHandler: ((UITextField) -> Void)?
   
-  init (style: UIAlertController.Style,
-        title: String? = nil,
-        message: String? = nil,
-        buttonTitles: [String],
-        actionStyles: [UIAlertAction.Style]? = nil,
-        actions: [(() -> Void)?],
-        owner: UIViewController? = nil,
-        textfieldConfigurationHandler: ((UITextField) -> Void)? = nil) {
+  public init (style: UIAlertController.Style,
+               title: String? = nil,
+               message: String? = nil,
+               buttonTitles: [String],
+               actionStyles: [UIAlertAction.Style]? = nil,
+               actions: [(() -> Void)?],
+               owner: UIViewController? = nil,
+               textfieldConfigurationHandler: ((UITextField) -> Void)? = nil) {
     self.style = style
     self.title = title
     self.message = message
@@ -402,12 +409,12 @@ public class MultiActionAlert {
     self.textfieldConfigurationHandler = textfieldConfigurationHandler
   }
   
-  init (style: UIAlertController.Style,
-        title: String? = nil,
-        message: String? = nil,
-        actions: [MultiActionAlert.Action],
-        owner: UIViewController? = nil,
-        textfieldConfigurationHandler: ((UITextField) -> Void)? = nil) {
+  public init (style: UIAlertController.Style,
+               title: String? = nil,
+               message: String? = nil,
+               actions: [MultiActionAlert.Action],
+               owner: UIViewController? = nil,
+               textfieldConfigurationHandler: ((UITextField) -> Void)? = nil) {
     self.style = style
     self.title = title
     self.message = message
@@ -446,7 +453,7 @@ public class MultiActionAlert {
   
   static let cancelAction: Action = Action(title: "Cancel".localized, style: .destructive)
   
-  class Action {
+  public class Action {
     var title: String
     var style: UIAlertAction.Style
     var handler: SpitterHandler?

@@ -73,4 +73,11 @@ extension String {
     return result
   }
   
+  public var withoutSpacesAndNewLines: String {
+    return trimmingCharacters(in: .whitespacesAndNewlines)
+  }
+  
+  public func index(from: Int) -> Index {
+    return self.index(startIndex, offsetBy: from)
+  }
 }
