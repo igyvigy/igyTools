@@ -19,4 +19,13 @@ public extension UIImage {
     return newImage
   }
   
+  static func toImage(view: UIView) -> UIImage {
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
+    view.layer.render(in: UIGraphicsGetCurrentContext()!)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return image!
+  }
+  
 }
