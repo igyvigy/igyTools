@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension Optional {
+public extension Optional {
     public func apply<Result>(_ transform: ((Wrapped) -> Result)?) -> Result? {
         return self.flatMap { value in
             transform.map { $0(value) }
@@ -32,40 +32,40 @@ extension Optional {
     }
 }
 
-extension Optional where Wrapped == String {
-    var orEmpty: String {
+public extension Optional where Wrapped == String {
+    public var orEmpty: String {
         return self ?? ""
     }
 }
 
-extension Optional where Wrapped == Int {
-    var orZero: Int {
+public extension Optional where Wrapped == Int {
+    public var orZero: Int {
         return self ?? 0
     }
 }
 
-extension Optional where Wrapped == Double {
-    var orZero: Double {
+public extension Optional where Wrapped == Double {
+    public var orZero: Double {
         return self ?? 0
     }
     
-    var orMax: Double {
+    public var orMax: Double {
         return self ?? Double.greatestFiniteMagnitude
     }
 }
 
-extension Optional where Wrapped == CGFloat {
-    var orZero: CGFloat {
+public extension Optional where Wrapped == CGFloat {
+    public var orZero: CGFloat {
         return self ?? 0
     }
     
-    var orMax: CGFloat {
+    public var orMax: CGFloat {
         return self ?? CGFloat.greatestFiniteMagnitude
     }
 }
 
-extension Optional where Wrapped == Date {
-    var orCurrent: Date {
+public extension Optional where Wrapped == Date {
+    public var orCurrent: Date {
         return self ?? Date()
     }
 }

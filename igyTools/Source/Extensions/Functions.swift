@@ -8,18 +8,18 @@
 
 import Foundation
 
-func id<T>(_ value: T) -> T {
+public func id<T>(_ value: T) -> T {
     return value
 }
 
-func cast<From, To>(_ value: From) -> To? {
+public func cast<From, To>(_ value: From) -> To? {
     return value as? To
 }
 
-func toClosure<T>(_ value: T) -> (() -> T) {
+public func toClosure<T>(_ value: T) -> (() -> T) {
     return { value }
 }
 
-func printObject(_ object: Any) {
+public func printObject(_ object: Any) {
     print(object)
 }

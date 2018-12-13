@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25BFDFFB21C2797E0013E15A /* NSLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BFDFF621C2797E0013E15A /* NSLock.swift */; };
+		25BFDFFC21C2797E0013E15A /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BFDFF721C2797E0013E15A /* Optional.swift */; };
+		25BFDFFD21C2797E0013E15A /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BFDFF821C2797E0013E15A /* Functions.swift */; };
+		25BFDFFE21C2797E0013E15A /* FunctionApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BFDFF921C2797E0013E15A /* FunctionApplication.swift */; };
+		25BFDFFF21C2797E0013E15A /* FuctionComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BFDFFA21C2797E0013E15A /* FuctionComposition.swift */; };
 		B50BC8B421C02D0B00F82BF2 /* igyTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50BC88B21C02D0B00F82BF2 /* igyTools.swift */; };
 		B50BC8B521C02D0B00F82BF2 /* InteractiveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50BC88D21C02D0B00F82BF2 /* InteractiveLabel.swift */; };
 		B50BC8B621C02D0B00F82BF2 /* AvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50BC88F21C02D0B00F82BF2 /* AvatarView.xib */; };
@@ -59,6 +64,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25BFDFF621C2797E0013E15A /* NSLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLock.swift; sourceTree = "<group>"; };
+		25BFDFF721C2797E0013E15A /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		25BFDFF821C2797E0013E15A /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		25BFDFF921C2797E0013E15A /* FunctionApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionApplication.swift; sourceTree = "<group>"; };
+		25BFDFFA21C2797E0013E15A /* FuctionComposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuctionComposition.swift; sourceTree = "<group>"; };
 		B50BC88B21C02D0B00F82BF2 /* igyTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = igyTools.swift; sourceTree = "<group>"; };
 		B50BC88D21C02D0B00F82BF2 /* InteractiveLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveLabel.swift; sourceTree = "<group>"; };
 		B50BC88F21C02D0B00F82BF2 /* AvatarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarView.xib; sourceTree = "<group>"; };
@@ -181,6 +191,11 @@
 		B50BC8A421C02D0B00F82BF2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				25BFDFFA21C2797E0013E15A /* FuctionComposition.swift */,
+				25BFDFF921C2797E0013E15A /* FunctionApplication.swift */,
+				25BFDFF821C2797E0013E15A /* Functions.swift */,
+				25BFDFF621C2797E0013E15A /* NSLock.swift */,
+				25BFDFF721C2797E0013E15A /* Optional.swift */,
 				B50BC8A521C02D0B00F82BF2 /* CALayer.swift */,
 				B50BC8A621C02D0B00F82BF2 /* Date.swift */,
 				B50BC8A721C02D0B00F82BF2 /* UIView.swift */,
@@ -369,9 +384,11 @@
 				B50BC8BD21C02D0B00F82BF2 /* ConstraintSettings.swift in Sources */,
 				B50BC8CB21C02D0B00F82BF2 /* Array.swift in Sources */,
 				B50BC8BE21C02D0B00F82BF2 /* Reusable.swift in Sources */,
+				25BFDFFE21C2797E0013E15A /* FunctionApplication.swift in Sources */,
 				B50BC8C421C02D0B00F82BF2 /* DateFormatterHelper.swift in Sources */,
 				B50BC8B721C02D0B00F82BF2 /* AvatarView.swift in Sources */,
 				B50BC8C721C02D0B00F82BF2 /* Dummer.swift in Sources */,
+				25BFDFFC21C2797E0013E15A /* Optional.swift in Sources */,
 				B50BC8CE21C02D0B00F82BF2 /* NSAttributedString.swift in Sources */,
 				B50BC8D221C02D0B00F82BF2 /* String.swift in Sources */,
 				B50BC8D321C02D0B00F82BF2 /* UIImage.swift in Sources */,
@@ -379,7 +396,9 @@
 				B50BC8C821C02D0B00F82BF2 /* CALayer.swift in Sources */,
 				B50BC8D021C02D0B00F82BF2 /* UITableView.swift in Sources */,
 				B50BC8BB21C02D0B00F82BF2 /* GradientView.swift in Sources */,
+				25BFDFFD21C2797E0013E15A /* Functions.swift in Sources */,
 				B50BC8B521C02D0B00F82BF2 /* InteractiveLabel.swift in Sources */,
+				25BFDFFB21C2797E0013E15A /* NSLock.swift in Sources */,
 				B50BC8BF21C02D0B00F82BF2 /* ReusableTableView.swift in Sources */,
 				B50BC8C021C02D0B00F82BF2 /* ReusableCollectionView.swift in Sources */,
 				B50BC8BC21C02D0B00F82BF2 /* CuttedCornerImageView.swift in Sources */,
@@ -390,6 +409,7 @@
 				B50BC8D521C02D0B00F82BF2 /* Enum.swift in Sources */,
 				B50BC8CC21C02D0B00F82BF2 /* UIStackView.swift in Sources */,
 				B50BC8D621C02D0B00F82BF2 /* Float.swift in Sources */,
+				25BFDFFF21C2797E0013E15A /* FuctionComposition.swift in Sources */,
 				B50BC8C121C02D0B00F82BF2 /* NibLoadable.swift in Sources */,
 				B50BC8D121C02D0B00F82BF2 /* UITableViewCell.swift in Sources */,
 				B50BC8BA21C02D0B00F82BF2 /* ReusableImageView.swift in Sources */,

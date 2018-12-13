@@ -15,12 +15,12 @@ precedencegroup CompositionPrecedence {
 
 infix operator •: CompositionPrecedence
 
-func composition<A, B, C>(f: @escaping (A) -> B, g: @escaping (B) -> C) -> (A) -> C {
+public func composition<A, B, C>(f: @escaping (A) -> B, g: @escaping (B) -> C) -> (A) -> C {
     return {
         return g(f($0))
     }
 }
 
-func •<A, B, C>(f: @escaping (A) -> B, g: @escaping (B) -> C) -> (A) -> C {
+public func •<A, B, C>(f: @escaping (A) -> B, g: @escaping (B) -> C) -> (A) -> C {
     return composition(f: f, g: g)
 }
