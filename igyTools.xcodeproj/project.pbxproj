@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2540AC2E21C7C11E0062C433 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540AC2D21C7C11D0062C433 /* TimeInterval.swift */; };
 		25BFDFFB21C2797E0013E15A /* NSLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BFDFF621C2797E0013E15A /* NSLock.swift */; };
 		25BFDFFC21C2797E0013E15A /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BFDFF721C2797E0013E15A /* Optional.swift */; };
 		25BFDFFD21C2797E0013E15A /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BFDFF821C2797E0013E15A /* Functions.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2540AC2D21C7C11D0062C433 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		25BFDFF621C2797E0013E15A /* NSLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLock.swift; sourceTree = "<group>"; };
 		25BFDFF721C2797E0013E15A /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		25BFDFF821C2797E0013E15A /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		B50BC8A421C02D0B00F82BF2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2540AC2D21C7C11D0062C433 /* TimeInterval.swift */,
 				25BFDFFA21C2797E0013E15A /* FuctionComposition.swift */,
 				25BFDFF921C2797E0013E15A /* FunctionApplication.swift */,
 				25BFDFF821C2797E0013E15A /* Functions.swift */,
@@ -377,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B50BC8B821C02D0B00F82BF2 /* ActivityIndicator.swift in Sources */,
+				2540AC2E21C7C11E0062C433 /* TimeInterval.swift in Sources */,
 				B50BC8B421C02D0B00F82BF2 /* igyTools.swift in Sources */,
 				B50BC8CA21C02D0B00F82BF2 /* UIView.swift in Sources */,
 				B50BC8C321C02D0B00F82BF2 /* Saver.swift in Sources */,

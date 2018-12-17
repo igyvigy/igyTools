@@ -80,4 +80,8 @@ extension String {
   public func index(from: Int) -> Index {
     return self.index(startIndex, offsetBy: from)
   }
+  
+  public func toUrl() -> URL? {
+    return URL(string: self)
+  }
 }
