@@ -9,6 +9,22 @@
 import UIKit
 
 extension Date {
+  public static func calculateAge(birthday: Date) -> Int? {
+    if birthday > Date() { return nil }
+    
+    let birthdayComponents = Calendar.current.dateComponents([Calendar.Component.year, .month, .day], from: birthday)
+    let currentComponents = Calendar.current.dateComponents([Calendar.Component.year, .month, .day], from: Date())
+    
+    var fullYears = currentComponents.year.orZero - birthdayComponents.year.orZero
+    
+    if birthdayComponents.month.orZero < currentComponents.month.orZero
+      || (birthdayComponents.month.orZero == currentComponents.month.orZero && birthdayComponents.day.orZero < currentComponents.day.orZero) {
+      fullYears -= 1
+    }
+    
+    return fullYears
+  }
+  
   public var mondayOfWeek: Date {
     let calendar = Calendar.current
     var components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
