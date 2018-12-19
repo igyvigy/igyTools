@@ -206,7 +206,7 @@ public class Spitter {
   public static func showErrorOnPvc(_ errStr: String, onAction: (() -> Void)? = nil) {
     var permission = true
     blackList.forEach { if errStr.range(of: $0) != nil { permission = false } }
-    if permission { showActionAlertOnPVC("Ooops.." , message: errStr, action: { onAction?() }) }
+    if permission { tap(.tryAgain); showActionAlertOnPVC("Ooops.." , message: errStr, action: { onAction?() }) }
   }
   
   public static func handleErrorStringClosure(onError: (() -> Void)? = nil, onAction: (() -> Void)? = nil) -> (String) -> Void {
@@ -214,7 +214,10 @@ public class Spitter {
       onError?()
       var permission = true
       blackList.forEach { if errStr.range(of: $0) != nil { permission = false } }
-      if permission { showActionAlertOnPVC("Ooops.." , message: errStr, action: { onAction?() }) }
+      if permission {
+        tap(.tryAgain)
+        showActionAlertOnPVC("Ooops.." , message: errStr, action: { onAction?() })
+      }
     }
   }
   static public func handleError(error: NSError) {
@@ -235,6 +238,7 @@ public class Spitter {
     print(error)
   }
   public static func displayErrorOnPVC(error: Error, action: (() -> Void)? = nil) {
+    tap(.tryAgain);
     showActionAlertOnPVC("Oooops.. ", message: error.localizedDescription, action: action ?? {})
   }
   static public func showOkAlertOnPVC(_ message: String) {

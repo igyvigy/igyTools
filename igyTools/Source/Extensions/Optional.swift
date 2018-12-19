@@ -44,6 +44,12 @@ public extension Optional where Wrapped == Int {
     }
 }
 
+public extension Optional where Wrapped == Bool {
+  public var orFalse: Bool {
+    return self ?? false
+  }
+}
+
 public extension Optional where Wrapped == Double {
     public var orZero: Double {
         return self ?? 0
