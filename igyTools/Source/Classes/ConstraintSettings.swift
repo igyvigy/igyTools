@@ -11,6 +11,8 @@ final public class ConstraintsSettings {
   fileprivate(set) var width: CGFloat?
   fileprivate(set) var height: CGFloat?
   
+  public static var zero: ConstraintsSettings { return ConstraintsSettings(edgeInsets: .zero) }
+  
   public init(left: CGFloat? = nil, right: CGFloat? = nil, top: CGFloat? = nil, bottom: CGFloat? = nil, centerX: CGFloat? = nil, centerY: CGFloat? = nil, width: CGFloat? = nil, height: CGFloat? = nil) {
     self.left = left
     self.right = right

@@ -657,7 +657,7 @@ public class Dummer {
   }
   
   public static func phone() -> String {
-    return "+(\(numbers(count: 2))) \(numbers(count: 3)) \(numbers(count: 3)) \(numbers(count: 2)) \(numbers(count: 2)))"
+    return "+(\(numbers(count: 2))) \(numbers(count: 3)) \(numbers(count: 3)) \(numbers(count: 2)) \(numbers(count: 2))"
   }
   
   public static func number(limiter:Int) -> Int{

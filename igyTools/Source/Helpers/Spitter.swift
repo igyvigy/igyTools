@@ -129,7 +129,7 @@ public class Spitter {
       completion()
     }
   }
-  public static func showWord(word: String, withColor color: UIColor = .black, vc: UIViewController? = nil, completion: @escaping () -> Void) {
+  public static func showWord(word: String, withColor color: UIColor = .black, vc: UIViewController? = nil, completion: (() -> Void)? = nil) {
     if let vc = vc {
       displayWord(word: word, withColor: color, vc: vc, completion: completion)
     } else {
@@ -140,7 +140,7 @@ public class Spitter {
       }
     }
   }
-  private static func displayWord (word: String, withColor color: UIColor, vc: UIViewController, completion: @escaping () -> Void) {
+  private static func displayWord (word: String, withColor color: UIColor, vc: UIViewController, completion:(() -> Void)?) {
     let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
     label.text = word
     label.textAlignment = .center
@@ -155,7 +155,7 @@ public class Spitter {
       label.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
     }) { _ in
       label.removeFromSuperview()
-      completion()
+      completion?()
     }
   }
   public static func showSpinner(vc: UIViewController? = nil) {
