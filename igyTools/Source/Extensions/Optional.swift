@@ -50,6 +50,12 @@ public extension Optional where Wrapped == Bool {
   }
 }
 
+public extension Optional where Wrapped == Array<Any> {
+  public var orEmpty: [Wrapped.Element] {
+    return self ?? []
+  }
+}
+
 public extension Optional where Wrapped == Double {
     public var orZero: Double {
         return self ?? 0

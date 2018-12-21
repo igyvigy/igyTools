@@ -195,6 +195,12 @@ extension Date {
     }
     return str
   }
+  //1990-07-24T00:00:00+00:00
+  public func drupalString() -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    return formatter.string(from: self)
+  }
 }
 
 #if canImport(Foundation)

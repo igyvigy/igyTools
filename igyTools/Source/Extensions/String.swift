@@ -41,6 +41,17 @@ extension String {
     return (regex?.numberOfMatches(in: self, range: NSRange(location: 0, length: count))) ?? 0 > 0
   }
   
+  public var isUrl: Bool {
+    //1854086221:http://link.gc.apple.com/players/G:1854086221
+    let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+    if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.endIndex.encodedOffset)) {
+      // it is a link, if the match covers the whole string
+      return match.range.length == self.endIndex.encodedOffset
+    } else {
+      return false
+    }
+  }
+  
   public var doesContainAtLeastOneDigit: Bool {
     let regex = try? NSRegularExpression(pattern: "^(?=.*\\d)")
     return (regex?.numberOfMatches(in: self, range: NSRange(location: 0, length: count))) ?? 0 > 0
@@ -83,5 +94,16 @@ extension String {
   
   public func toUrl() -> URL? {
     return URL(string: self)
+  }
+  
+  public func filter(okChars: Set<Character>) -> String {
+    return filter { okChars.contains($0) }
+  }
+  
+  public func drupalDate() -> Date? {
+    //1990-07-24T00:00:00+00:00
+      let formatter = DateFormatter()
+      formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    return formatter.date(from: self)
   }
 }
