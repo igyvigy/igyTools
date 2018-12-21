@@ -6,7 +6,7 @@ final public class Saver {
     return UserDefaults.standard.bool(forKey: key)
   }
   
-  static public func saveBool(_ value: Bool, for key: String) {
+  static public func saveBool(_ value: Bool?, for key: String) {
     UserDefaults.standard.set(value, forKey: key)
   }
   
