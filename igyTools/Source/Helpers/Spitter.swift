@@ -28,6 +28,23 @@ public class Spitter {
     }
   }
   
+  class SelectorHandler {
+    let c: (() -> Void)?
+    var selector: Selector
+    
+    init(_ c: (() -> Void)?) {
+      self.c = c
+      selector = #selector(doSelector)
+    }
+    
+    @objc func doSelector() {
+      c?()
+    }
+  }
+  
+  public static func handleSelector(_ c: (() -> Void)?) -> Selector {
+    return SelectorHandler(c).selector
+  }
   
   public static func showOkAlert(_ message: String?, title: String? = nil, action: SpitterHandler? = nil, viewController: UIViewController) {
     var permission = true
