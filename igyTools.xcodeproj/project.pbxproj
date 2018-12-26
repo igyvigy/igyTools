@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2540AC2E21C7C11E0062C433 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540AC2D21C7C11D0062C433 /* TimeInterval.swift */; };
+		2548FDC321D28296008BF0D2 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2548FDC221D28296008BF0D2 /* UICollectionView.swift */; };
 		25BFDFFB21C2797E0013E15A /* NSLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BFDFF621C2797E0013E15A /* NSLock.swift */; };
 		25BFDFFC21C2797E0013E15A /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BFDFF721C2797E0013E15A /* Optional.swift */; };
 		25BFDFFD21C2797E0013E15A /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BFDFF821C2797E0013E15A /* Functions.swift */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		2540AC2D21C7C11D0062C433 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		2548FDC221D28296008BF0D2 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		25BFDFF621C2797E0013E15A /* NSLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLock.swift; sourceTree = "<group>"; };
 		25BFDFF721C2797E0013E15A /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		25BFDFF821C2797E0013E15A /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				B50BC8B121C02D0B00F82BF2 /* UIViewController.swift */,
 				B50BC8B221C02D0B00F82BF2 /* Enum.swift */,
 				B50BC8B321C02D0B00F82BF2 /* Float.swift */,
+				2548FDC221D28296008BF0D2 /* UICollectionView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				B50BC8D121C02D0B00F82BF2 /* UITableViewCell.swift in Sources */,
 				B50BC8BA21C02D0B00F82BF2 /* ReusableImageView.swift in Sources */,
 				B50BC8C621C02D0B00F82BF2 /* System.swift in Sources */,
+				2548FDC321D28296008BF0D2 /* UICollectionView.swift in Sources */,
 				B50BC8C221C02D0B00F82BF2 /* Spitter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
