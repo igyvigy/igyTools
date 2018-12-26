@@ -7,28 +7,28 @@
 
 import Foundation
 
-extension TimeInterval {
-  static var minute: TimeInterval {
+public extension TimeInterval {
+  public static var minute: TimeInterval {
     return 60
   }
   
-  static var hour: TimeInterval {
+  public static var hour: TimeInterval {
     return minute * 60
   }
   
-  static var day: TimeInterval {
+  public static var day: TimeInterval {
     return hour * 24
   }
   
-  static var week: TimeInterval {
+  public static var week: TimeInterval {
     return day * 7
   }
   
-  static var notLeapYear: TimeInterval {
+  public static var notLeapYear: TimeInterval {
     return day * 365
   }
   
-  static var leapYear: TimeInterval {
+  public static var leapYear: TimeInterval {
     return day * 366
   }
 }
