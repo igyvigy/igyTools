@@ -5,7 +5,8 @@ public enum DateFormatterType: String {
   case `default` = "yyyy-MM-dd HH:mm:ss ZZZZZ",
   hourMinute = "HH:mm",
   ddMMyyyy = "dd/MM/yyyy",
-  weekDayMonthDayHHmm = "EEE MMM d, HH:mm"
+  weekDayMonthDayHHmm = "EEE MMM d, HH:mm",
+  monthDayHHMM = "MMM d, HH:mm"
 }
 
 public final class DateFormatterHelper {
@@ -52,5 +53,13 @@ public final class DateFormatterHelper {
     components.minute = Int(minute) ?? 0
     
     return Calendar.current.date(from: components)?.timeIntervalSince1970 ?? 0
+  }
+  
+  public static func todayWeekDayMonthDayHHmm(from date: Date) -> String {
+    if date.normalized == Date().normalized {
+      return "Today" + " " + convertToString(from: date, with: .monthDayHHMM)
+    }
+    
+    return convertToString(from: date, with: .weekDayMonthDayHHmm)
   }
 }
