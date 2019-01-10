@@ -42,8 +42,9 @@ public class Spitter {
     }
   }
   
-  public static func handleSelector(_ c: (() -> Void)?) -> Selector {
-    return SelectorHandler(c).selector
+  public static func handleSelector(_ c: (() -> Void)?) -> (object: Any, selector: Selector) {
+    let handler = SelectorHandler(c)
+    return (object: handler, selector: handler.selector)
   }
   
   public static func showOkAlert(_ message: String?, title: String? = nil, action: SpitterHandler? = nil, viewController: UIViewController) {
