@@ -6,7 +6,7 @@
 //  Copyright © 2018 rolique. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public extension UICollectionView {
   public func setDelegateAndDataSource(_ object: UICollectionViewDelegate & UICollectionViewDataSource) {
