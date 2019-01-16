@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2506916221EF32B800BCB32E /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2506916121EF32B800BCB32E /* UIEdgeInsets.swift */; };
 		253439EA21EA74080083BA70 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253439E921EA74080083BA70 /* URL.swift */; };
 		2540AC2E21C7C11E0062C433 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540AC2D21C7C11D0062C433 /* TimeInterval.swift */; };
 		2548FDC321D28296008BF0D2 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2548FDC221D28296008BF0D2 /* UICollectionView.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2506916121EF32B800BCB32E /* UIEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		253439E921EA74080083BA70 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		2540AC2D21C7C11D0062C433 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		2548FDC221D28296008BF0D2 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		B50BC8A421C02D0B00F82BF2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2506916121EF32B800BCB32E /* UIEdgeInsets.swift */,
 				253439E921EA74080083BA70 /* URL.swift */,
 				2540AC2D21C7C11D0062C433 /* TimeInterval.swift */,
 				25BFDFFA21C2797E0013E15A /* FuctionComposition.swift */,
@@ -401,6 +404,7 @@
 				25BFDFFC21C2797E0013E15A /* Optional.swift in Sources */,
 				B50BC8CE21C02D0B00F82BF2 /* NSAttributedString.swift in Sources */,
 				B50BC8D221C02D0B00F82BF2 /* String.swift in Sources */,
+				2506916221EF32B800BCB32E /* UIEdgeInsets.swift in Sources */,
 				B50BC8D321C02D0B00F82BF2 /* UIImage.swift in Sources */,
 				253439EA21EA74080083BA70 /* URL.swift in Sources */,
 				B50BC8D421C02D0B00F82BF2 /* UIViewController.swift in Sources */,
