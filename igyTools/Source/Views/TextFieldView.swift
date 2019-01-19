@@ -1,7 +1,7 @@
 
 import UIKit
 
-class TextFieldView: UITextView {
-  var placeholder: String?
+public class TextFieldView: UITextView {
+  public var placeholder: String?
   
 }
