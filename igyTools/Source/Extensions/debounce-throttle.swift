@@ -10,7 +10,7 @@ extension TimeInterval {
 
      - Returns: `true` if `since` has passed since now.
      */
-    func hasPassed(since: TimeInterval) -> Bool {
+    public func hasPassed(since: TimeInterval) -> Bool {
         return Date().timeIntervalSinceReferenceDate - self > since
     }
 
@@ -25,7 +25,7 @@ extension TimeInterval {
  
  - Returns: A new function that will only call `action` if `delay` time passes between invocations.
  */
-func debounce(delay: DispatchTimeInterval, queue: DispatchQueue = .main, action: @escaping (() -> Void)) -> () -> Void {
+public func debounce(delay: DispatchTimeInterval, queue: DispatchQueue = .main, action: @escaping (() -> Void)) -> () -> Void {
     var currentWorkItem: DispatchWorkItem?
     return {
         currentWorkItem?.cancel()
@@ -45,7 +45,7 @@ func debounce(delay: DispatchTimeInterval, queue: DispatchQueue = .main, action:
 
  - Returns: A new function that will only call `action` if `delay` time passes between invocations.
  */
-func debounce1<T>(delay: DispatchTimeInterval, queue: DispatchQueue = .main, action: @escaping ((T) -> Void)) -> (T) -> Void {
+public func debounce1<T>(delay: DispatchTimeInterval, queue: DispatchQueue = .main, action: @escaping ((T) -> Void)) -> (T) -> Void {
     var currentWorkItem: DispatchWorkItem?
     return { (p1: T) in
         currentWorkItem?.cancel()
@@ -65,7 +65,7 @@ func debounce1<T>(delay: DispatchTimeInterval, queue: DispatchQueue = .main, act
 
  - Returns: A new function that will only call `action` if `delay` time passes between invocations.
  */
-func debounce2<T, U>(delay: DispatchTimeInterval, queue: DispatchQueue = .main, action: @escaping ((T, U) -> Void)) -> (T, U) -> Void {
+public func debounce2<T, U>(delay: DispatchTimeInterval, queue: DispatchQueue = .main, action: @escaping ((T, U) -> Void)) -> (T, U) -> Void {
     var currentWorkItem: DispatchWorkItem?
     return { (p1: T, p2: U) in
         currentWorkItem?.cancel()
@@ -83,7 +83,7 @@ func debounce2<T, U>(delay: DispatchTimeInterval, queue: DispatchQueue = .main, 
  
  - Returns: A new function that will only call `action` once every `delay` seconds, regardless of how often it is called.
  */
-func throttle(delay: TimeInterval, queue: DispatchQueue = .main, action: @escaping (() -> Void)) -> () -> Void {
+public func throttle(delay: TimeInterval, queue: DispatchQueue = .main, action: @escaping (() -> Void)) -> () -> Void {
     var currentWorkItem: DispatchWorkItem?
     var lastFire: TimeInterval = 0
     return {
@@ -108,7 +108,7 @@ func throttle(delay: TimeInterval, queue: DispatchQueue = .main, action: @escapi
 
  - Returns: A new function that will only call `action` once every `delay` seconds, regardless of how often it is called.
  */
-func throttle1<T>(delay: TimeInterval, queue: DispatchQueue = .main, action: @escaping ((T) -> Void)) -> (T) -> Void {
+public func throttle1<T>(delay: TimeInterval, queue: DispatchQueue = .main, action: @escaping ((T) -> Void)) -> (T) -> Void {
     var currentWorkItem: DispatchWorkItem?
     var lastFire: TimeInterval = 0
     return { (p1: T) in
@@ -134,7 +134,7 @@ func throttle1<T>(delay: TimeInterval, queue: DispatchQueue = .main, action: @es
  - Returns: A new function that will only call `action` once every `delay` seconds, regardless of how often it is called.
  */
 
-func throttle2<T, U>(delay: TimeInterval, queue: DispatchQueue = .main, action: @escaping ((T, U) -> Void)) -> (T, U) -> Void {
+public func throttle2<T, U>(delay: TimeInterval, queue: DispatchQueue = .main, action: @escaping ((T, U) -> Void)) -> (T, U) -> Void {
     var currentWorkItem: DispatchWorkItem?
     var lastFire: TimeInterval = 0
     return { (p1: T, p2: U) in
