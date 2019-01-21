@@ -19,7 +19,7 @@ extension UIColor {
 
 public class Spitter {
   public static let blackList = [String]()
-  public static var activityIndicator: UIActivityIndicatorView?
+  public static var activityIndicators: [UIActivityIndicatorView] = []
   public static func showErrorAlert(_ error: String?, viewController: UIViewController) {
     var permission = false
     blackList.forEach({ if error?.range(of: $0) != nil { permission = false }})
@@ -178,49 +178,71 @@ public class Spitter {
   }
   public static func showSpinner(vc: UIViewController? = nil) {
     if let vc = vc {
-      displaySpinner(vc: vc)
+      displaySpinner(view: vc.view)
     } else {
       if let rootController = UIApplication.shared.keyWindow?.rootViewController {
-        displaySpinner(vc: rootController)
+        displaySpinner(view: rootController.view)
       }
     }
   }
   public static func hideSpinner(vc: UIViewController? = nil) {
     if let vc = vc {
-      removeSpinner(vc: vc)
+      removeSpinnerFrom(view: vc.view)
     } else {
       if let rootController = UIApplication.shared.keyWindow?.rootViewController {
-        removeSpinner(vc: rootController)
+        removeSpinnerFrom(view: rootController.view)
       }
     }
   }
-  private static func displaySpinner (vc: UIViewController) {
-    if let activityIndicator = self.activityIndicator {
-      activityIndicator.isHidden = false
-      activityIndicator.startAnimating()
+  public static func hideSpinner(view: UIView) {
+    removeSpinnerFrom(view: view)
+  }
+  public static func hideAllSpinners() {
+    removeAllSpinners()
+  }
+  
+  public static func showSpinner(view: UIView) {
+    displaySpinner(view: view)
+  }
+  
+  private static func displaySpinner(view: UIView) {
+    var childpinner: UIActivityIndicatorView? {
+      var spinner: UIActivityIndicatorView?
+      if let activityView = view.subviews.first(where: { $0 is UIActivityIndicatorView }) as? UIActivityIndicatorView {
+        spinner = activityView
+      }
+      return spinner
+    }
+    if let childpinner = childpinner {
+      childpinner.isHidden = false
+      childpinner.startAnimating()
     } else {
       let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
       activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 50, height: 50)
       activityIndicator.style = UIActivityIndicatorView.Style.gray
-      activityIndicator.center = vc.view.center
-      addSubview(subview: activityIndicator, toView: vc.view)
+      activityIndicator.center = view.center
+      addSubview(subview: activityIndicator, toView: view)
       activityIndicator.startAnimating()
-      self.activityIndicator = activityIndicator
+      self.activityIndicators.append(activityIndicator)
     }
   }
-  private static func removeSpinner (vc: UIViewController) {
-    if let activityIndicator = self.activityIndicator {
-      activityIndicator.stopAnimating()
-      activityIndicator.isHidden = true
-    } else {
-      for child in vc.view.subviews {
-        if let activity = child as? UIActivityIndicatorView {
-          activity.stopAnimating()
-          activity.removeFromSuperview()
-        }
+  private static func removeSpinnerFrom(view: UIView) {
+    for child in view.subviews {
+      if let activity = child as? UIActivityIndicatorView {
+        activity.stopAnimating()
+        activity.removeFromSuperview()
       }
     }
   }
+  private static func removeAllSpinners() {
+    if !activityIndicators.isEmpty {
+      activityIndicators.forEach { activityIndicator in
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+      }
+    }
+  }
+  
   public static func showErrorOnPvc(_ errStr: String, onAction: (() -> Void)? = nil) {
     var permission = true
     blackList.forEach { if errStr.range(of: $0) != nil { permission = false } }
