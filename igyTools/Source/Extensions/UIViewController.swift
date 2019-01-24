@@ -68,4 +68,15 @@ extension UIViewController {
     }
     return className
   }
+  
+  private struct AssociatedKeys {
+    static var resultHandler = "resultHandler"
+  }
+  
+  public var resultHandler: ((AnyObject) -> Void)? {
+    get {
+      return objc_getAssociatedObject(self, &AssociatedKeys.resultHandler) as? ((AnyObject) -> Void)
+    }
+    set { objc_setAssociatedObject(self, &AssociatedKeys.resultHandler, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
 }
