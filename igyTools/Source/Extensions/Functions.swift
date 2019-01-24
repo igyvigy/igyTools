@@ -8,7 +8,7 @@
 
 import Foundation
 
-public func id<T>(_ value: T) -> T {
+@discardableResult public func id<T>(_ value: T) -> T {
     return value
 }
 
@@ -16,7 +16,7 @@ public func cast<From, To>(_ value: From) -> To? {
     return value as? To
 }
 
-public func toClosure<T>(_ value: T) -> (() -> T) {
+@discardableResult public func toClosure<T>(_ value: T) -> (() -> T) {
     return { value }
 }
 

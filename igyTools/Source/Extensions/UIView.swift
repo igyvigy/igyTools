@@ -35,11 +35,11 @@ extension UIView {
     layer.mask = mask
   }
   
-  public func getSubviewsOf<T: UIView>(view: UIView) -> [T] {
+  public func getSubviews<T: UIView>(view: UIView) -> [T] {
     var subviews = [T]()
     
     for subview in view.subviews {
-      subviews += getSubviewsOf(view: subview) as [T]
+      subviews += getSubviews(view: subview) as [T]
       
       if let subview = subview as? T {
         subviews.append(subview)
@@ -47,6 +47,15 @@ extension UIView {
     }
     
     return subviews
+  }
+  
+  public func getSuperview<T: UIView>() -> T? {
+    guard let superView = self.superview else { return nil }
+    if let casted = superview as? T {
+      return casted
+    } else {
+      return superview?.getSuperview()
+    }
   }
   
   public func showSpinner() {
