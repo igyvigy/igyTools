@@ -22,6 +22,9 @@ extension Array where Element: Hashable {
   public var uniqueObjects: [Element] {
     return Array(Set(self))
   }
+  public var withoutDuplicates: [Element] {
+    return Array(Set(self))
+  }
 }
 
 extension Array where Element == String {
