@@ -176,7 +176,7 @@ public class Spitter {
       completion?()
     }
   }
-  public static func showSpinner(vc: UIViewController? = nil) {
+  public static func showSpinner(vc: UIViewController? = nil, style: UIActivityIndicatorView.Style = .gray) {
     if let vc = vc {
       displaySpinner(view: vc.view)
     } else {
@@ -201,16 +201,17 @@ public class Spitter {
     removeAllSpinners()
   }
   
-  public static func showSpinner(view: UIView) {
-    displaySpinner(view: view)
+  public static func showSpinner(view: UIView, style: UIActivityIndicatorView.Style = .gray) {
+    displaySpinner(view: view, style: style)
   }
   
-  private static func displaySpinner(view: UIView) {
+  private static func displaySpinner(view: UIView, style: UIActivityIndicatorView.Style = .gray) {
     var childpinner: UIActivityIndicatorView? {
       var spinner: UIActivityIndicatorView?
       if let activityView = view.subviews.first(where: { $0 is UIActivityIndicatorView }) as? UIActivityIndicatorView {
         spinner = activityView
       }
+      spinner?.style = style
       return spinner
     }
     if let childpinner = childpinner {
@@ -223,6 +224,7 @@ public class Spitter {
       activityIndicator.center = view.center
       addSubview(subview: activityIndicator, toView: view)
       activityIndicator.startAnimating()
+      activityIndicator.style = style
       self.activityIndicators.append(activityIndicator)
     }
   }
