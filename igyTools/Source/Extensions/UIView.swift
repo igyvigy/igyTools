@@ -117,6 +117,31 @@ extension UIView {
     
     layer.insertSublayer(gradeintLayer, at: 0)
   }
+  
+  public static func createCircleOverlay(frame: CGRect,
+                                         color: UIColor,
+                                         alpha: CGFloat,
+                                         center: CGPoint,
+                                         radius: CGFloat) -> UIView {
+    let overlayView = UIView(frame: frame)
+    overlayView.backgroundColor = color
+    overlayView.alpha = alpha
+    let path = CGMutablePath()
+    path.addArc(center: CGPoint(x: center.x, y: center.y),
+                radius: radius,
+                startAngle: 0.0,
+                endAngle: 2.0 * .pi,
+                clockwise: false)
+    path.addRect(CGRect(origin: .zero, size: overlayView.frame.size))
+    let maskLayer = CAShapeLayer()
+    maskLayer.backgroundColor = UIColor.black.cgColor
+    maskLayer.path = path
+    maskLayer.fillRule = .evenOdd
+    overlayView.layer.mask = maskLayer
+    overlayView.clipsToBounds = true
+    
+    return overlayView
+  }
 }
 
 @IBDesignable
