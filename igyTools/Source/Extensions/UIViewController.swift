@@ -73,10 +73,19 @@ extension UIViewController {
     static var resultHandler = "resultHandler"
   }
   
-  public var resultHandler: ((AnyObject) -> Void)? {
+  public var resultHandler: ((AnyObject?) -> Void)? {
     get {
-      return objc_getAssociatedObject(self, &AssociatedKeys.resultHandler) as? ((AnyObject) -> Void)
+      return objc_getAssociatedObject(self, &AssociatedKeys.resultHandler) as? ((AnyObject?) -> Void)
     }
     set { objc_setAssociatedObject(self, &AssociatedKeys.resultHandler, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
+  
+  public func present(_ vc: UIViewController, forResult result: @escaping (AnyObject?) -> Void, completion: (() -> Void)? = nil) {
+    if let vc = (vc as? UINavigationController)?.viewControllers.first {
+      vc.resultHandler = result
+    } else {
+      vc.resultHandler = result
+    }
+    present(vc, animated: true, completion: completion)
   }
 }
