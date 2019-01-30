@@ -15,6 +15,13 @@ extension Array {
   public mutating func setElement(_ element: Element, at index: Int) {
     self[index] = element
   }
+  
+  ///
+  /// Inserts element at position or in the end if array not big enough.
+  ///
+  public mutating func insertIfPossible(_ newElement: Element, at position: Int) {
+    position < self.count ? self.insert(newElement, at: position) : self.append(newElement)
+  }
 }
 
 // MARK: - Hashable
