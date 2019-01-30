@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension NSCopying {
-  func copiedObject<T>() -> T {
+public extension NSCopying {
+  public func copiedObject<T>() -> T {
     return self.copy() as! T
   }
 }
