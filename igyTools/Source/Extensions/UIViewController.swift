@@ -88,4 +88,9 @@ extension UIViewController {
     }
     present(vc, animated: true, completion: completion)
   }
+  
+  public func push(_ vc: UIViewController, forResult result: @escaping (AnyObject?) -> Void) {
+    vc.resultHandler = result
+    navigationController?.pushViewController(vc, animated: true)
+  }
 }
