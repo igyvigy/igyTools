@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2506916221EF32B800BCB32E /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2506916121EF32B800BCB32E /* UIEdgeInsets.swift */; };
+		252ACCFD2201D7EA002C7564 /* NSCopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252ACCFC2201D7EA002C7564 /* NSCopying.swift */; };
 		253439EA21EA74080083BA70 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253439E921EA74080083BA70 /* URL.swift */; };
 		2540AC2E21C7C11E0062C433 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540AC2D21C7C11D0062C433 /* TimeInterval.swift */; };
 		2548FDC321D28296008BF0D2 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2548FDC221D28296008BF0D2 /* UICollectionView.swift */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		2506916121EF32B800BCB32E /* UIEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
+		252ACCFC2201D7EA002C7564 /* NSCopying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCopying.swift; sourceTree = "<group>"; };
 		253439E921EA74080083BA70 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		2540AC2D21C7C11D0062C433 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		2548FDC221D28296008BF0D2 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				B50BC8B221C02D0B00F82BF2 /* Enum.swift */,
 				B50BC8B321C02D0B00F82BF2 /* Float.swift */,
 				2548FDC221D28296008BF0D2 /* UICollectionView.swift */,
+				252ACCFC2201D7EA002C7564 /* NSCopying.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				B50BC8BE21C02D0B00F82BF2 /* Reusable.swift in Sources */,
 				25BFDFFE21C2797E0013E15A /* FunctionApplication.swift in Sources */,
 				B50BC8C421C02D0B00F82BF2 /* DateFormatterHelper.swift in Sources */,
+				252ACCFD2201D7EA002C7564 /* NSCopying.swift in Sources */,
 				B50BC8B721C02D0B00F82BF2 /* AvatarView.swift in Sources */,
 				B50BC8C721C02D0B00F82BF2 /* Dummer.swift in Sources */,
 				25BFDFFC21C2797E0013E15A /* Optional.swift in Sources */,
