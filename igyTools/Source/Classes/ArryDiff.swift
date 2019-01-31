@@ -20,3 +20,15 @@ public struct ArryDiff<T1, T2> {
     self.inserted = inserted
   }
 }
+
+public struct ArryChanges<T1, T2> {
+  public var diff: ArryDiff<T1, T2>
+  public var first: [T1]
+  public var second: [T2]
+  
+  public init(_ first: [T1], _ second: [T2], with compare: (T1, T2) -> Bool) {
+    self.first = first
+    self.second = second
+    self.diff = arrayDiff(first, second, with: compare)
+  }
+}

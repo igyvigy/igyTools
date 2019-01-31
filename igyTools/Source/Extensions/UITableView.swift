@@ -98,4 +98,29 @@ extension UITableView {
     
     return image!
   }
+  
+  public func reloadInteractively<A: Hashable, B: Hashable>(oldItems: [A], newItems: [B], compare: (A, B) -> Bool, section: Int = 0) {
+    let diff = arrayDiff(oldItems, newItems, with: compare)
+    if !diff.removed.isEmpty {
+      deleteRows(at: diff.removed.map { IndexPath(item: oldItems.index(of: $0)!, section: section) }, with: UITableView.RowAnimation.automatic)
+    }
+    if !diff.inserted.isEmpty {
+      insertRows(at: diff.inserted.map { IndexPath(item: newItems.index(of: $0)!, section: section) }, with: UITableView.RowAnimation.automatic)
+    }
+    if !diff.common.isEmpty {
+      reloadRows(at: diff.common.map { IndexPath(item: newItems.index(of: $0.1)!, section: section) }, with: UITableView.RowAnimation.automatic)
+    }
+  }
+  
+  public func reloadInteractively<A: Hashable, B: Hashable>(changes: ArryChanges<A, B>, section: Int) {
+    if !changes.diff.removed.isEmpty {
+      deleteRows(at: changes.diff.removed.map { IndexPath(item: changes.first.index(of: $0)!, section: section) }, with: UITableView.RowAnimation.automatic)
+    }
+    if !changes.diff.inserted.isEmpty {
+      insertRows(at: changes.diff.inserted.map { IndexPath(item: changes.second.index(of: $0)!, section: section) }, with: UITableView.RowAnimation.automatic)
+    }
+    if !changes.diff.common.isEmpty {
+      reloadRows(at: changes.diff.common.map { IndexPath(item: changes.second.index(of: $0.1)!, section: section) }, with: UITableView.RowAnimation.automatic)
+    }
+  }
 }
