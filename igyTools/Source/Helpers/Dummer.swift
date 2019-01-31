@@ -641,7 +641,7 @@ public class Dummer {
   }
   
   public static func email() -> String{
-    return "a\(loremIpsum(limiter: 6))@b\(loremIpsum(limiter: 6).withoutSpacesAndNewLines).mail"
+    return "a\(loremIpsum(limiter: 6))@b\(loremIpsum(limiter: 6).withoutSpacesAndNewLines).ru"
   }
   
   public static func element<G>(ofArray array: [G]) -> G {
