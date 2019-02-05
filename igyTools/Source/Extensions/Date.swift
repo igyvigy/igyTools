@@ -201,6 +201,12 @@ extension Date {
     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     return formatter.string(from: self)
   }
+  
+  public func yyyyMMddDateString() -> Date? {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
+    return formatter.string(from: self)
+  }
 }
 
 #if canImport(Foundation)
