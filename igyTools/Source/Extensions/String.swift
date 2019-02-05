@@ -102,8 +102,14 @@ extension String {
   
   public func drupalDate() -> Date? {
     //1990-07-24T00:00:00+00:00
-      let formatter = DateFormatter()
-      formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    return formatter.date(from: self)
+  }
+  
+  public func yyyyMMddDate() -> Date? {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
     return formatter.date(from: self)
   }
 }
