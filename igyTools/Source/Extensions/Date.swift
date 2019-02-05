@@ -202,7 +202,7 @@ extension Date {
     return formatter.string(from: self)
   }
   
-  public func yyyyMMddDateString() -> Date? {
+  public func yyyyMMddDateString() -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
     return formatter.string(from: self)
