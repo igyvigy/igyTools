@@ -179,21 +179,15 @@ extension Date {
   
   public func toStringVithRelativeValue() -> String {
     let now = Date()
-    var str = ""
-    if now.minutesSince(self) < 60 {
-      str = "\(NSString(format: "%.0f", now.minutesSince(self)/60)) m"
+    if abs(now.hoursSince(self)) < 1 {
+      return "\(NSString(format: "%.0f", abs(now.minutesSince(self)))) m"
+    } else if abs(now.hoursSince(self)) < 24 {
+      return "\(NSString(format: "%.0f", abs(now.hoursSince(self)))) h"
+    } else if abs(now.daysSince(self)) < 7 {
+      return "\(NSString(format: "%.0f", abs(now.daysSince(self)))) d"
     } else {
-      if now.hoursSince(self) < 24 {
-        str = "\(NSString(format: "%.0f", now.hoursSince(self)/24)) d"
-      } else {
-        if now.daysSince(self) < 7 {
-          str = "\(NSString(format: "%.0f", now.daysSince(self))) d"
-        } else {
-          str = "\(NSString(format: "%.0f", now.daysSince(self)/7)) w"
-        }
-      }
+      return "\(NSString(format: "%.0f", abs(now.daysSince(self)/7))) w"
     }
-    return str
   }
   //1990-07-24T00:00:00+00:00
   public func drupalString() -> String {

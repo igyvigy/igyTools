@@ -142,6 +142,15 @@ extension UIView {
     
     return overlayView
   }
+  
+  public var compressedSize: CGSize {
+    return systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+  }
+  
+  public class func makeZero<V: UIView>() -> V {
+    let v = V(frame: .zero)
+    return v
+  }
 }
 
 @IBDesignable
@@ -177,4 +186,7 @@ open class NibLoadingView: UIView {
     
     return nibView
   }
+  
+  
 }
+
