@@ -6,7 +6,8 @@ public enum DateFormatterType: String {
   hourMinute = "HH:mm",
   ddMMyyyy = "dd/MM/yyyy",
   weekDayMonthDayHHmm = "EEE MMM d, HH:mm",
-  monthDayHHMM = "MMM d, HH:mm"
+  monthDayHHMM = "MMM d, HH:mm",
+  monthDd = "MMMM dd"
 }
 
 public final class DateFormatterHelper {
@@ -19,7 +20,7 @@ public final class DateFormatterHelper {
     return form
   }()
   
-  public static func convertToDate(from string: String, with type: DateFormatterType = .default) -> Date? {
+  public static func date(from string: String, with type: DateFormatterType = .default) -> Date? {
     objc_sync_enter(self)
     defer { objc_sync_exit(self) }
     
@@ -32,7 +33,7 @@ public final class DateFormatterHelper {
     return weekDayFormatter.string(from: date)
   }
   
-  public static func convertToString(from date: Date, with type: DateFormatterType = .default) -> String {
+  public static func string(from date: Date, with type: DateFormatterType = .default) -> String {
     objc_sync_enter(self)
     defer { objc_sync_exit(self) }
     
@@ -57,9 +58,9 @@ public final class DateFormatterHelper {
   
   public static func todayWeekDayMonthDayHHmm(from date: Date) -> String {
     if date.normalized == Date().normalized {
-      return "Today" + " " + convertToString(from: date, with: .monthDayHHMM)
+      return "Today" + " " + string(from: date, with: .monthDayHHMM)
     }
     
-    return convertToString(from: date, with: .weekDayMonthDayHHmm)
+    return string(from: date, with: .weekDayMonthDayHHmm)
   }
 }
