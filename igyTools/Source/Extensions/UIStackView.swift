@@ -23,6 +23,14 @@ extension UIStackView {
     completion?()
   }
   
+  public func hide(_ indices: [Int], animated: Bool = false, completion: (() -> Void)? = nil) {
+    setHidden(indices, isHidden: true, animated: animated, completion: completion)
+  }
+  
+  public func show(_ indices: [Int], animated: Bool = false, completion: (() -> Void)? = nil) {
+    setHidden(indices, isHidden: false, animated: animated, completion: completion)
+  }
+  
   public func configureViews(for indices: [Int], isHidden: Bool, animated: Bool = true, completion: @escaping () -> Void) {
     guard !animated else {
       UIView.animate(withDuration: animated ? 0.25 : 0, animations: {
