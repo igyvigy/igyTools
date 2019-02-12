@@ -23,3 +23,21 @@ public func cast<From, To>(_ value: From) -> To? {
 public func printObject(_ object: Any) {
     print(object)
 }
+
+public func to<T>(_ function: @escaping (() -> Void)) -> ((T) -> Void) {
+  return { _ in
+    function()
+  }
+}
+
+public func to<T, G>(_ function: @escaping (() -> Void)) -> ((T, G) -> Void) {
+  return { _, _ in
+    function()
+  }
+}
+
+public func to<T, G, H>(_ function: @escaping (() -> Void)) -> ((T, G, H) -> Void) {
+  return { _, _, _ in
+    function()
+  }
+}
