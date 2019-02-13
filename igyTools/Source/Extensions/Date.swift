@@ -128,6 +128,15 @@ extension Date {
     return calendar.date(from: dateComponents)!
   }
   
+  public var nextMonth: Date {
+    let calendar = Calendar.current
+    let units = Set<Calendar.Component>([.day, .month, .year])
+    var dateComponents = calendar.dateComponents(units, from: self)
+    dateComponents.month = (dateComponents.month ?? 0) + 1
+    
+    return calendar.date(from: dateComponents)!
+  }
+  
   @available(iOS 10.0, *)
   public var daysInCurrentMonth: Int {
     let calendar = Calendar.current
