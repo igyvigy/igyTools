@@ -112,4 +112,8 @@ extension String {
     formatter.dateFormat = "yyyy-MM-dd"
     return formatter.date(from: self)
   }
+  
+  public func capitalizingFirstLetter() -> String {
+    return prefix(1).uppercased() + self.lowercased().dropFirst()
+  }
 }
