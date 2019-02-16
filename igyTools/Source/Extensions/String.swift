@@ -1,5 +1,5 @@
 
-import Foundation
+import UIKit
 
 extension String {
   public var encoded: String? {
@@ -39,6 +39,20 @@ extension String {
   public var isEmail: Bool {
     let regex = try? NSRegularExpression(pattern: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$")
     return (regex?.numberOfMatches(in: self, range: NSRange(location: 0, length: count))) ?? 0 > 0
+  }
+  
+  public var isPhoneNumber: Bool {
+    do {
+      let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
+      let matches = detector.matches(in: self, options: [], range: NSMakeRange(0, self.count))
+      if let res = matches.first {
+        return res.resultType == .phoneNumber && res.range.location == 0 && res.range.length == self.count
+      } else {
+        return false
+        }
+    } catch {
+      return false
+    }
   }
   
   public var isUrl: Bool {
