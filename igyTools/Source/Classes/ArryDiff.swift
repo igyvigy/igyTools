@@ -32,3 +32,5 @@ public struct ArryChanges<T1, T2> {
     self.diff = arrayDiff(first, second, with: compare)
   }
 }
+
+public typealias Diff<T> = ArryDiff<T, T>
