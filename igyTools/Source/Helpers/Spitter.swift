@@ -9,6 +9,10 @@ extension String {
   public var localized: String {
     return NSLocalizedString(self, comment: ".localized")
   }
+  
+  public func localizeWithFormat(arguments: CVarArg...) -> String{
+    return String(format: self.localized, arguments: arguments)
+  }
 }
 
 extension UIColor {
