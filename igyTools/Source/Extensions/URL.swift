@@ -7,8 +7,12 @@
 
 import UIKit
 
-extension URL {
-  var isRemote: Bool {
+public extension URL {
+  public var isRemote: Bool {
     return self.path.starts(with: "https://") || self.path.starts(with: "http://")
+  }
+  
+  public func openInSafari() {
+    UIApplication.shared.open(self)
   }
 }
