@@ -56,11 +56,4 @@ public final class DateFormatterHelper {
     return Calendar.current.date(from: components)?.timeIntervalSince1970 ?? 0
   }
   
-  public static func todayWeekDayMonthDayHHmm(from date: Date) -> String {
-    if date.normalized == Date().normalized {
-      return "Today" + " " + string(from: date, with: .monthDayHHMM)
-    }
-    
-    return string(from: date, with: .weekDayMonthDayHHmm)
-  }
 }

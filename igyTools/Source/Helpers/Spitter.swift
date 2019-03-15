@@ -5,15 +5,15 @@ import AudioToolbox.AudioServices
 public typealias ErrorClosure = (String?, String?) -> Void
 public typealias SpitterHandler = () -> Void
 
-extension String {
-  public var localized: String {
-    return NSLocalizedString(self, comment: ".localized")
-  }
-  
-  public func localizeWithFormat(arguments: CVarArg...) -> String{
-    return String(format: self.localized, arguments: arguments)
-  }
-}
+//extension String {
+//  public var localized: String {
+//    return NSLocalizedString(self, comment: ".localized")
+//  }
+//  
+//  public func localizeWithFormat(arguments: CVarArg...) -> String{
+//    return String(format: self.localized, arguments: arguments)
+//  }
+//}
 
 extension UIColor {
   public static var defaultTint: UIColor {
@@ -110,7 +110,7 @@ public class Spitter {
     }
   }
   public static func showConfirmation(_ title: String = "Are you sure?", message: String? = nil, owner: UIViewController? = nil, confirmCompletion: @escaping () -> Void) {
-    MultiActionAlert(style: .alert, title: title, message: message, buttonTitles: ["Ok".localized, "Cancel".localized], actionStyles: [.default, .cancel], actions: [ {confirmCompletion()}, {} ], owner: owner ?? pvc())
+    MultiActionAlert(style: .alert, title: title, message: message, buttonTitles: ["Ok", "Cancel"], actionStyles: [.default, .cancel], actions: [ {confirmCompletion()}, {} ], owner: owner ?? pvc())
       .showAlert()
   }
   public static func showAlert(_ title: String? = nil, message: String?, buttonTitles: [String], actions: [(() -> Void)?], owner: UIViewController) {
@@ -501,7 +501,7 @@ public class MultiActionAlert {
     owner!.present(alert, animated: true, completion: nil)
   }
   
-  static let cancelAction: Action = Action(title: "Cancel".localized, style: .destructive)
+  static let cancelAction: Action = Action(title: "Cancel", style: .destructive)
   
   public class Action {
     var title: String
