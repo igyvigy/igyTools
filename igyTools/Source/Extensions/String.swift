@@ -130,4 +130,8 @@ extension String {
   public func capitalizingFirstLetter() -> String {
     return prefix(1).uppercased() + self.lowercased().dropFirst()
   }
+  
+  public func toPasteboard() {
+    UIPasteboard.general.string = self
+  }
 }

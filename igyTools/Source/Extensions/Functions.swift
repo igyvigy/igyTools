@@ -8,9 +8,12 @@
 
 import Foundation
 
-@discardableResult public func id<T>(_ value: T) -> T {
+public struct This {
+  @discardableResult static public func id<T>(_ value: T) -> T {
     return value
+  }
 }
+
 
 public func cast<From, To>(_ value: From) -> To? {
     return value as? To
