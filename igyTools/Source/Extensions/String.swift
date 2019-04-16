@@ -134,4 +134,8 @@ extension String {
   public func toPasteboard() {
     UIPasteboard.general.string = self
   }
+  
+  public static var singleQuoteString: String {
+    return "\""
+  }
 }
