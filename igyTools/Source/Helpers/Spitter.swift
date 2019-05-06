@@ -152,29 +152,42 @@ public class Spitter {
     }
   }
   public static func showWord(word: String, withColor color: UIColor = .black, vc: UIViewController? = nil, completion: (() -> Void)? = nil) {
-    if let vc = vc {
-      displayWord(word: word, withColor: color, vc: vc, completion: completion)
-    } else {
-      if let pvc = pvc() {
-        displayWord(word: word, withColor: color, vc: pvc, completion: completion)
-      } else if let rootVC = rootVC() {
-        displayWord(word: word, withColor: color, vc: rootVC, completion: completion)
+    DispatchQueue.main.async {
+      if let vc = vc {
+        displayWord(word: word, withColor: color, vc: vc, completion: completion)
+      } else {
+        if let pvc = pvc() {
+          displayWord(word: word, withColor: color, vc: pvc, completion: completion)
+        } else if let rootVC = rootVC() {
+          displayWord(word: word, withColor: color, vc: rootVC, completion: completion)
+        }
       }
     }
   }
+  
+  private static var wordCount: Int = 0 {
+    didSet{
+      if Spitter.wordCount >= 10 { Spitter.wordCount = 0 }
+    }
+  }
+  
+  private static let wordSpacing: CGFloat = 46
+  
   private static func displayWord (word: String, withColor color: UIColor, vc: UIViewController, completion:(() -> Void)?) {
     let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
     label.text = word
     label.textAlignment = .center
     label.textColor = color
     label.center = vc.view.center
+    label.center.y = vc.view.center.y + (-200 + CGFloat(wordCount) * wordSpacing)
     label.numberOfLines = 0
     label.font = UIFont(name: label.font.fontName, size: 30)
     vc.view.addSubview(label)
     vc.view.bringSubviewToFront(label)
-    UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+    wordCount += 1
+    UIView.animate(withDuration: 1.6, delay: 0, options: .curveEaseOut, animations: {
       label.alpha = 0
-      label.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+      label.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
     }) { _ in
       label.removeFromSuperview()
       completion?()
