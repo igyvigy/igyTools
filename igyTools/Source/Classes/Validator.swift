@@ -14,7 +14,7 @@ public class Validate {
       }
     }
     
-    func isValid(_ s: String?) -> Bool {
+    public func isValid(_ s: String?) -> Bool {
       switch self {
       case .email:
         if s?.isEmpty == true { return true }
