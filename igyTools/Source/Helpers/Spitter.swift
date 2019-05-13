@@ -25,10 +25,10 @@ public class Spitter {
   public static let blackList = [String]()
   public static var activityIndicators: [UIActivityIndicatorView] = []
   public static func showErrorAlert(_ error: String?, viewController: UIViewController) {
-    var permission = false
+    var permission = true
     blackList.forEach({ if error?.range(of: $0) != nil { permission = false }})
     if permission {
-      showAlert(message: error, buttonTitles: ["Close"], actions: [nil], owner: viewController)
+      showAlert("Ooops..", message: error, buttonTitles: ["Close"], actions: [nil], owner: viewController)
     }
   }
   
